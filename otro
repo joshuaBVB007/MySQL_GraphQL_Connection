@@ -1,0 +1,28 @@
+type Query {
+    quote: String
+    random: Float!
+    Incognita:Boolean
+    rollDice(veces: Int!,chucho:String): String
+    personas(last:Int): [Persona]
+  }
+  type Persona{
+    nombre:String
+    edad:Int
+  }
+
+  quote: () => {return "Helloda";},
+  random: () => {return Math.random();},
+  Incognita:()=>{return true;},
+  rollDice: (args) => {
+    console.log(args.veces+args.chucho);
+    
+    return args.veces+" "+args.chucho;
+  },
+  personas: ({last}) => {
+    console.log(last);
+    var e=[
+      {nombre:"John",edad:33},
+      {nombre:"Jonathan",edad:23}
+    ]
+    return e;
+  }
